@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --default-color: #0060e5;
+  --default-text-color: #cbe1ff;
+  --white: #ffffff;
+  --black--first: #363e4d;
+  --black--second: #242933;
+  --main-black: #161a20;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  -webkit-tap-highlight-color: transparent; /* transparent with keyword */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* transparent with rgba */
+  -webkit-tap-highlight-color: hsla(0, 0, 0, 0); /* transparent with hsla */
+  -webkit-tap-highlight-color: #00000000; /* transparent with hex with alpha */
+  -webkit-tap-highlight-color: #0000; /* transparent with short hex with alpha */
+}
+
+body {
+  background: var(--default-color);
+}
+
+.App {
+  display: grid;
+  grid-auto-rows: 539px;
+  padding: 1rem 0rem;
+}
+
+body {
+  background-color: #e5e5e5;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 100%;
+}
+
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
+.container {
+  display: grid;
+  grid-auto-rows: 600px;
+  grid-gap: 2rem;
+  padding: 0.5rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calculator,
+.metric {
+  background-color: var(--main-black);
+  border-radius: 0.5rem;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* global button style */
+button {
+  border: unset;
+  box-shadow: unset;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* calculator wrapper */
+.c-wrapper {
+  display: grid;
+  grid-auto-rows: 10% 28% 11% 51%;
+  height: 100%;
+}
+
+.ctc {
+  padding: 0.5rem 1rem;
+}
+
+.c-type {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.c-type button {
+  padding: 0.5rem;
+  background-color: var(--black--first);
+  font-size: 0.8rem;
+  font-weight: 400;
+  transition: all 0.5s linear;
+}
+
+.c-type button.active {
+  background-color: var(--default-color);
+}
+
+.c-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  transition: all 0.5s linear;
+  /* overflow: hidden; */
+}
+
+.c-history-answer {
+  background-color: var(--black--first);
+  padding: 0.2rem 1rem;
+  border-radius: 0.5rem;
+  color: var(--default-text-color);
+  font-weight: 300;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.c-answer {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  color: var(--white);
+  font-weight: 900;
+}
+
+.c-compute {
+  background-color: var(--black--first);
+  padding: 0.4rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.5s linear;
+
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  font-weight: 300;
+  color: var(--default-text-color);
+}
+
+/* Action buttons */
+.c-actions {
+  padding: 0.5rem 1rem;
+}
+
+.cta {
+  display: grid;
+  grid-auto-rows: 52px;
+  grid-gap: 0.3rem;
+}
+
+.cta button {
+  cursor: pointer;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.5s linear;
+  text-transform: uppercase;
+}
+
+.cta button.top-btn {
+  background-color: var(--black--first);
+}
+
+.cta button.normal {
+  background-color: var(--black--second);
+}
+
+.cta-tp,
+.cta-md {
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 0.3rem;
+}
+
+/*bottom buttons */
+.cta-btm {
+  grid-template-columns: 49.4% 1fr 1fr;
+}
+
+/* Active button */
+.cta button:active,
+.c-type button:active {
+  background-color: var(--default-text-color);
+}
+
+/* Larger Screen Size => 768px */
+@media screen and (min-width: 768px) {
+  body {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: unset;
+    width: 750px;
+  }
+}
+
+/* Buttons */
+button.c-reverse {
+  background-color: unset;
+  font-size: 1.2rem;
+  color: var(--default-text-color);
+}
+
+button.special,
+button.special.sign {
+  background-color: var(--default-color);
+}
+
+/* Converter */
+
+.c-wrapper .converter {
+  grid-template-columns: 35% 10% 55%;
+}
+
+.converter .ctc {
+  padding: 0.3rem 2rem;
+}
+
+.btn-cn {
+  padding: 0 rem;
+  display: grid;
+  grid-gap: 0.2rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.btn-cn button {
+  background-color: var(--black--first);
+  border-radius: 2px;
+  font-size: 1.2rem;
+  transition: all 0.5s linear;
+}
+
+.btn-cn button:active {
+  background-color: var(--default-text-color);
+}
+
+.btn-op {
+  display: grid;
+  grid-gap: 0.3rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 80px;
+}
+
+.btn-op button {
+  transition: all 0.5s linear;
+  background-color: var(--black--second);
+}
+
+.btn-op button:active {
+  background-color: var(--black--first);
+}
+
+.converter .c-screen {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+}
+
+.converter select {
+  background-color: unset;
+  color: var(--default-text-color);
+  border: unset;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.converter #metrictype {
+  margin-bottom: 1.1rem;
+  margin-top: 1.1rem;
+}
+
+.input-select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.input-select input {
+  background-color: unset;
+  color: #fff;
+  border: unset;
+  padding: 0.5rem;
+  border: 1px solid var(--default-text-color);
+  caret-color: var(--default-text-color);
+}
+
+.input-select input::placeholder {
+  color: #ccc;
+  background-color: unset;
+  border: unset;
+}
