@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 function Calculator() {
+
+  useEffect(() => {
+    var numbers = document.querySelectorAll(".number"),
+      operators = document.querySelectorAll('.operator');
+
+
+    numbers.forEach(number => {
+      number.addEventListener("click", function (e) {
+        console.log(e.target.innerText);
+      });
+    });
+
+    // for (var i = 0; i < numbers.length; i++) {
+    //   numbers[i].addEventListener("click", function (e) {
+    //     console.log(e.target.innerText);
+    //   })
+    // }
+
+
+  }, [])
+
   return (
     <div className='calculator'>
       <div className='c-wrapper'>
@@ -23,42 +44,35 @@ function Calculator() {
           <button className='c-reverse'>
             <i className="fa-solid fa-rotate-left"></i>
           </button>
-
-          <span>1234 + 5698</span>
+          <span>1234 + 5678</span>
         </div>
 
-        <div className='c-actions'>
-          <div className='cta cta-tp'>
-            <button type="button" className="top-btn operator" value="ac">ac</button>
-            <button type="button" className="top-btn operator" value="pm">&plusmn;</button>
-            <button type="button" className="top-btn operator" value="%">%</button>
-            <button type="button" className="top-btn special  operator" value="/">/</button>
-          </div>
+        <div className='c-grid'>
+          <button type="button" className="top-btn operator" value="ac">ac</button>
+          <button type="button" className="top-btn operator" value="pm">&plusmn;</button>
+          <button type="button" className="top-btn operator" value="%">%</button>
+          <button type="button" className="top-btn special operator" value="/">/</button>
 
-          <div className='cta cta-md'>
-            <button className="normal number" value="7">7</button>
-            <button className="normal number" value="8">8</button>
-            <button className="normal number" value="9">9</button>
+          <button className="normal number" value="7">7</button>
+          <button className="normal number" value="8">8</button>
+          <button className="normal number" value="9">9</button>
 
 
-            <button className="special" value="x">x</button>
-            <button className="normal number" value="4">4</button>
-            <button className="normal number" value="5">5</button>
-            <button className="normal number" value="6">6</button>
+          <button className="special" value="x">x</button>
+          <button className="normal number" value="4">4</button>
+          <button className="normal number" value="5">5</button>
+          <button className="normal number" value="6">6</button>
 
 
-            <button className="special  operator" value="-">-</button>
-            <button className="normal number" value="1">1</button>
-            <button className="normal number" value="2">2</button>
-            <button className="normal number" value="3">3</button>
-            <button className="special operator" value="+">+</button>
-          </div>
+          <button className="special  operator" value="-">-</button>
+          <button className="normal number" value="1">1</button>
+          <button className="normal number" value="2">2</button>
+          <button className="normal number" value="3">3</button>
+          <button className="special operator" value="+">+</button>
 
-          <div className='cta cta-btm'>
-            <button className="normal number" value="0">0</button>
-            <button className="normal operator" value=".">.</button>
-            <button className="special operator" value="=">=</button>
-          </div>
+          <button className="span-two normal number" value="0">0</button>
+          <button className="normal operator" value=".">.</button>
+          <button className="special operator" value="=">=</button>
         </div>
       </div>
     </div >
