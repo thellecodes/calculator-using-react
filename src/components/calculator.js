@@ -28,6 +28,11 @@ function Calculator() {
       return;
     }
 
+    if (value === "pm") {
+      console.log('pm')
+      return;
+    }
+
     // get last operand value
     if (operand.slice(-1) === value) {
       const newOperand = operand.slice(0, -1);
@@ -72,6 +77,7 @@ function Calculator() {
       case ".":
         break;
       case "pm":
+        // console.log('pm')
         break;
       case "%":
         break;
