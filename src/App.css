@@ -52,7 +52,7 @@ body::-webkit-scrollbar {
   margin-right: auto;
 }
 
-.container .calculator{
+.container .calculator {
   height: 90vh;
   width: 330px;
   background-color: var(--main-black);
@@ -219,4 +219,8 @@ button.special.sign {
     padding: unset;
     width: 750px;
   }
+}
+
+.no-rv {
+  cursor: unset;
 }

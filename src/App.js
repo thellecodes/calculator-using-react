@@ -2,7 +2,7 @@ import './App.css';
 
 
 // Components 
-import Calcuator from "./components/calculator/calculator";
+import Calcuator from "./components/calculator";
 
 function App() {
   return (
