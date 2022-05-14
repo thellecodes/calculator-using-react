@@ -1,56 +1,103 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 
 function Calculator() {
-
   const [prevAnswer, setPrevAnswer] = useState("");
   const [answer, setAnswer] = useState("0");
   const [operand, setOperand] = useState("");
-  const [history, setHistory] = useState([]);
 
   const handleOperand = (e) => {
     const value = e.target.value;
 
+    // set operaands inputs
     setOperand(operand => operand + value);
-
-    /* Create operand history & new value */
-    setHistory([[operand], value]);
   }
 
   const handleOperator = (e) => {
     const value = e.target.value;
 
+
+    if (value === "=") {
+      if (operand === "") return;
+    }
+
     // if no value in operand stop 
     if (value === "ac") {
       setOperand("");
       setAnswer(0);
-      setPrevAnswer(answer);
+
+      // Check if we have a prev answer > 0
+      if (answer > 0)
+        setPrevAnswer(answer);
       return;
     }
 
+    // handle plush and minus sign
     if (value === "pm") {
-      console.log('pm')
+      if (operand === "") return;
+      //get the last char
+      let calculated;
+      if (Number(operand.slice(-1))) {
+        calculated = eval(operand);
+
+        if (Math.sign(calculated) < 0) {
+          calculated = Math.abs(calculated);
+          setOperand(calculated.toString());
+        } else {
+          setOperand(`-` + calculated.toString());
+        }
+
+      } else {
+        calculated = (eval(operand.slice(0, -1)));
+        if (Math.sign(calculated)) {
+          setOperand((`-` + calculated.toString()))
+        } else {
+          setOperand((calculated.toString()))
+        }
+      }
       return;
     }
 
+
+    /* last test for users */
+    if (value === "%") {
+      if (operand === "") return;
+    }
+
+    let newOperand;
     // get last operand value
     if (operand.slice(-1) === value) {
-      const newOperand = operand.slice(0, -1);
+      newOperand = operand.slice(0, -1);
       setOperand(newOperand + value);
     } else {
-      // get the last input operator
+      // get the last input operator & check if is a number
       if (!Number(operand.slice(-1))) {
-        let newOperand = operand.slice(0, -1);
+        // remove the last selected char
+        newOperand = operand.slice(0, -1);
+
         // checks if the last operand contains a zero
         if (Number(operand.slice(-1)) === 0) {
           setOperand(newOperand + `0` + value); return
-        } else setOperand(newOperand + value); return
+        } else {
+          setOperand(newOperand + value);
+          return;
+        }
+
       } else if (operand.slice(-1) === "ac") {
+
         setOperand("");
-        setAnswer(0)
+        // Check if we have a prev answer > 0
+        if (answer > 0)
+          setAnswer(0)
+      }
+      else if (operand.includes("/")) {
+        newOperand = eval(operand);
+        setOperand(newOperand);
       }
     }
 
+
+    // if the last inputed digit is not a number stop
     const lastDigit = operand.slice(-1);
     if (!Number(lastDigit)) return;
 
@@ -59,32 +106,31 @@ function Calculator() {
       setOperand(operand => operand + value);
     }
 
-    const historyFirstInput = history[0].join("");
+    // Swicth for some arithmetic operations
     switch (value) {
       case "ac":
         setOperand("");
         break;
       case "+":
-        if (historyFirstInput !== "") {
-          setOperand(eval(operand) + value)
-          break;
-        }
+        setOperand(eval(operand) + value)
+        break;
       case "-":
         setOperand(`${eval(operand)}${value}`)
         break;
       case "*":
-        break;
-      case ".":
-        break;
-      case "pm":
-        // console.log('pm')
+        setOperand(`${eval(operand)}${value}`)
         break;
       case "%":
+        console.log('percentage + Test for all viewers')
+        break;
+      case "/":
+        setOperand(`${eval(operand)}${value}`);
         break;
       case "=":
         setOperand("");
-        setAnswer(eval(operand))
-        setPrevAnswer(answer)
+        setAnswer(eval(operand));
+        if (answer > 0)
+          setPrevAnswer(answer);
         break;
       default:
         return;
@@ -92,15 +138,12 @@ function Calculator() {
 
   }
 
+  // Delete last char from operand
   const handleDelete = () => {
     if (operand.length > 0) {
       setOperand(op => op.slice(0, -1));
     }
   }
-
-  useEffect(() => {
-    if (operand.includes("=")) { setOperand(operand.replace(/=/gi, "")); return }
-  }, [operand])
 
   return (
     <div className='calculator'>
