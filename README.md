@@ -7,11 +7,11 @@ This project was created by [Samuel Anthony](https://twitter.com/sam1an).
 
 # Youtube Video - Full project video
 
-[![Everything Is AWESOME](https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc=s180-rw)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "Everything Is AWESOME")
+[![Everything Is AWESOME](https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc=s180-rw)](https://www.youtube.com/watch?v=IapWzX5bCoE "Build a calculator app with react js")
 
 ## To install
 
-Run `git clone [repo-link]` to grab this project from github
+Run `git clone https://github.com/thellecodes/calculator-using-react.git` to grab this project from github
 
 ### `npm install`
 
