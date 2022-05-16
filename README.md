@@ -7,7 +7,7 @@ This project was created by [Samuel Anthony](https://twitter.com/sam1an).
 
 # Youtube Video - Full project video
 
-[![Everything Is AWESOME](https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc=s180-rw)](https://www.youtube.com/watch?v=IapWzX5bCoE "Build a calculator app with react js")
+[![Everything Is AWESOME](https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc=s180-rw)](https://www.youtube.com/watch?v=Dy4qkxdN7jY "Build a calculator app with react js")
 
 ## To install
 
