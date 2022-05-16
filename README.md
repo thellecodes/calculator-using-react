@@ -19,5 +19,5 @@ To install the neccessary dependencies
 
 ### `npm start`
 
-To start the project on your lochost pc
+To start the project on your localhost pc
 
